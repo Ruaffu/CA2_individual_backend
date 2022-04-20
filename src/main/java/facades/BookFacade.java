@@ -1,11 +1,15 @@
 package facades;
 
+import dtos.BookDTO;
 import entities.Author;
 import entities.Book;
+import entities.User;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class BookFacade
 {
@@ -60,6 +64,17 @@ public class BookFacade
         } finally {
             em.close();
         }
+    }
 
+    public List<BookDTO> getAllBooks(){
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Book> query = em.createQuery ("select b from Book b", Book.class);
+            List<Book> books = query.getResultList();
+            System.out.println(books.size());
+            return BookDTO.getDtos(books);
+        } finally {
+            em.close();
+        }
     }
 }

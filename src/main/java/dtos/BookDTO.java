@@ -32,4 +32,10 @@ public class BookDTO
         }
         return stringAuthors;
     }
+
+    public static List<BookDTO> getDtos(List<Book> rms){
+        List<BookDTO> rmdtos = new ArrayList();
+        rms.forEach(rm->rmdtos.add(new BookDTO(rm)));
+        return rmdtos;
+    }
 }
