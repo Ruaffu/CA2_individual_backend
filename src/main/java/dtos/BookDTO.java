@@ -3,6 +3,7 @@ package dtos;
 import entities.Author;
 import entities.Book;
 import entities.Role;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,5 +38,9 @@ public class BookDTO
         List<BookDTO> rmdtos = new ArrayList();
         rms.forEach(rm->rmdtos.add(new BookDTO(rm)));
         return rmdtos;
+    }
+
+    public Book toBook () {
+        return new Book(this.title, this.isbn,this.description);
     }
 }

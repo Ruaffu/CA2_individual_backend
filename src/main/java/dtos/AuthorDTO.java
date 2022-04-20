@@ -2,6 +2,7 @@ package dtos;
 
 import entities.Author;
 import entities.Book;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,9 @@ public class AuthorDTO
             stringBooks.add(book.getIsbn());
         }
         return stringBooks;
+    }
+
+    public Author toAuthor () {
+        return new Author(this.name);
     }
 }

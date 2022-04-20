@@ -59,7 +59,6 @@ public class BookFacade
             query.setMaxResults(1);
             return query.getSingleResult();
         } catch (NoResultException e) {
-            System.out.println(author.getName());
             return new Author(author.getName());
         } finally {
             em.close();
@@ -71,7 +70,6 @@ public class BookFacade
         try {
             TypedQuery<Book> query = em.createQuery ("select b from Book b", Book.class);
             List<Book> books = query.getResultList();
-            System.out.println(books.size());
             return BookDTO.getDtos(books);
         } finally {
             em.close();
