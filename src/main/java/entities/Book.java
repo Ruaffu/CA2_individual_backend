@@ -31,6 +31,11 @@ public class Book
         this.description = description;
     }
 
+    public void addAuthor(Author author) {
+        authors.add(author);
+        author.getBooks().add(this);
+    }
+
     public int getId()
     {
         return id;
@@ -81,7 +86,7 @@ public class Book
         this.authors = authors;
     }
 
-    public void addAuthor(Author author){
-        authors.add(author);
-    }
+//    public void addAuthor(Author author){
+//        authors.add(author);
+//    }
 }
