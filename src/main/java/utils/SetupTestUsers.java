@@ -1,8 +1,11 @@
 package utils;
 
 
+import entities.Author;
+import entities.Book;
 import entities.Role;
 import entities.User;
+import facades.BookFacade;
 import facades.UserFacade;
 
 import javax.persistence.EntityManager;
@@ -24,6 +27,10 @@ public class SetupTestUsers {
     User user = new User("user", "test123");
     User admin = new User("admin", "test123");
     User both = new User("user_admin", "test123");
+    Book book1 = new Book("Akata Witch","9780142420911","great");
+
+    Author author1 = new Author("Nnedi Okorafor");
+
 
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
     {
@@ -44,6 +51,7 @@ public class SetupTestUsers {
     em.persist(both);
     em.getTransaction().commit();
     UserFacade.getUserFacade(emf).registerNewUser(user);
+    BookFacade.getBookFacade(emf).registerNewBook(book1, author1);
     System.out.println("PW: " + user.getUserPass());
     System.out.println("Testing user with OK password: " + user.verifyPassword("test123"));
     System.out.println("Testing user with wrong password: " + user.verifyPassword("test1"));

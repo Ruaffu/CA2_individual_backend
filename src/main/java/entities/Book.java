@@ -17,7 +17,7 @@ public class Book
     private String isbn;
     private String description;
 
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST)
     private List<Author> authors = new ArrayList<>();
 
     public Book()
