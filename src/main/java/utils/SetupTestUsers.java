@@ -28,9 +28,9 @@ public class SetupTestUsers {
     User admin = new User("admin", "test123");
     User both = new User("user_admin", "test123");
     Book book1 = new Book("Akata Witch","9780142420911","great");
-    Book book2 = new Book("CompTIA Network+ Certification Premium Bundle: All-in-One Exam Guide, Seventh Edition ","9781260458091","This Premium Bundle includes Mike Meyers' bestselling exam guide and access to online video training, practice exams, simulations, and much more!");
-    Book book3 = new Book("Children of Hurin","9780547952109","The Children of Hrin is the first complete book by J.R.R.Tolkien since the 1977 publication of The Silmarillion");
-    Book book4 = new Book("Silmarillion","9780547951980","The story of the creation of the world and of the the First Age");
+    Book book2 = new Book("The Three Musketeers","9781539444688","The Three Musketeers by Alexandre Dumas, unabridged republishing of a classic.");
+    Book book3 = new Book("The Count of Monte Cristo","9780141392462","A beautiful new clothbound edition of Alexandre Dumas' classic novel of wrongful imprisonment, adventure and revenge.");
+    Book book4 = new Book("Silmarillion","9780618391110","The story of the creation of the world and of the the First Age");
     Book book5 = new Book("The Hobbit","9780547951973","A great modern classic and the prelude to The Lord of the Rings");
     Book book6 = new Book("The Lord of the Rings","9780547951942"," One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them");
     Book book7 = new Book("Treasure Island","9780141192451","Part of Penguin's beautiful hardback Clothbound Classics series");
@@ -39,6 +39,7 @@ public class SetupTestUsers {
     Author author2 = new Author("Mike Meyers");
     Author author3 = new Author("J.R.R. Tolkien");
     Author author4 = new Author("Robert Louis Stevenson");
+    Author author5 = new Author("Alexandre Dumas");
 
 
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
@@ -61,8 +62,8 @@ public class SetupTestUsers {
     em.getTransaction().commit();
     UserFacade.getUserFacade(emf).registerNewUser(user);
     BookFacade.getBookFacade(emf).registerNewBook(book1, author1);
-    BookFacade.getBookFacade(emf).registerNewBook(book2, author2);
-    BookFacade.getBookFacade(emf).registerNewBook(book3, author3);
+    BookFacade.getBookFacade(emf).registerNewBook(book2, author5);
+    BookFacade.getBookFacade(emf).registerNewBook(book3, author5);
     BookFacade.getBookFacade(emf).registerNewBook(book4, author3);
     BookFacade.getBookFacade(emf).registerNewBook(book5, author3);
     BookFacade.getBookFacade(emf).registerNewBook(book6, author3);

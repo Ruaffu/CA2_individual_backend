@@ -23,4 +23,7 @@ POST http://localhost:8080/ca2_startcode_backend_war_exploded/api/book/newbook
 
 {"title":"book5", "isbn":"1255432423","description":"test5","name":"test auth5"}
 
+###
+GET http://localhost:8080/ca2_startcode_backend_war_exploded/api/random/bored
+
 
